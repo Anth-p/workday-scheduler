@@ -46,3 +46,19 @@ var createRow = function() {
 
 // event listener for when the save button is clicked
 $(".save-button").click(function (event) {
+
+    // gives access to the button 
+  var buttonIndex = $(this)[0].id[4];
+
+  // jQuery gets the value of the input with the id i
+  var ind = `#input-row${buttonIndex}`;
+
+  var inputContent = $(ind)[0].innerHTML;
+  var todosTemp = JSON.parse(localStorage.getItem("todos"));
+  todosTemp[buttonIndex] = inputContent;
+
+  localStorage.setItem("todos", JSON.stringify(todosTemp));
+  for (const todo of todosTemp) {
+  }
+});
+
