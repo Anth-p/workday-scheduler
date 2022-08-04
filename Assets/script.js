@@ -23,3 +23,26 @@ var todos = ["", "", "", "", "", "", "", "", ""];
 
 // Current Date
 date.append(timeDateToday);
+
+// Creating text boxes and save bottons
+// If there is content in local storage, it'll automatically add to the page
+var createRow = function() {
+    for (i = 0; i < workHours.length; i++) {
+      container.append(
+        `<div class='row' id='bs-row${i}'>
+          <div class='col-md-2 hour' id='hours-row${i}'>${workHours[i]}</div>
+            <div contenteditable='true' class='col-md-8 textarea' id='input-row${i}'>
+              ${todos[i]}
+            </div> 
+            <button class='col md-2 save-button' id='save${i}'>
+              <i class='fa fa-save' id='save-image${i}'></i>
+            </button>
+        </div>`
+      );
+    }
+  };
+
+  createRow(workHours);
+
+// event listener for when the save button is clicked
+$(".save-button").click(function (event) {
